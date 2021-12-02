@@ -17,10 +17,14 @@ const main = async () => {
         })
 
     app.use(express.json());
-    app.use('/primary', primaryRoutes)
-    app.use('/secondary', secondaryRoutes)
-    app.use('/monitor', monitorRoutes)
-    app.use('/log', logRoutes)
+    app.use('/',express.static('public/dist'))
+    app.get('/', (req, res) => {
+        res.sendFile('public/dist/index.html');
+    })
+    app.use('/api/primary', primaryRoutes)
+    app.use('/api/secondary', secondaryRoutes)
+    app.use('/api/monitor', monitorRoutes)
+    app.use('/api/log', logRoutes)
 
     app.listen(5000, () => {
         console.log("Server has started!")

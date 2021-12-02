@@ -1,19 +1,24 @@
 {
   "name": "server-webserver",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "type": "module",
+  "source": "views/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js"
+    "dev": "concurrently \"parcel watch --dist-dir public/dist\" \"nodemon index.js\"",
+    "start": "concurrently \"parcel build --dist-dir public/dist\" \"node index.js\""
   },
   "dependencies": {
+    "concurrently": "^6.4.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "mongoose": "^6.0.13"
+    "mongoose": "^6.0.13",
+    "vue": "^3.2.22"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "@parcel/transformer-vue": "^2.0.1",
+    "nodemon": "^2.0.15",
+    "parcel": "^2.0.1"
   }
 }
