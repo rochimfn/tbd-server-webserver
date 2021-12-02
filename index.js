@@ -1,7 +1,8 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
-import { primaryRoutes, secondaryRoutes, monitorRoutes, logRoutes } from './routes.js'
+import { auth } from './middleware/auth.js';
+import { authRoutes, primaryRoutes, secondaryRoutes, monitorRoutes, logRoutes } from './routes.js'
 
 
 const main = async () => {
@@ -21,10 +22,11 @@ const main = async () => {
     app.get('/', (req, res) => {
         res.sendFile('public/dist/index.html');
     })
-    app.use('/api/primary', primaryRoutes)
-    app.use('/api/secondary', secondaryRoutes)
-    app.use('/api/monitor', monitorRoutes)
-    app.use('/api/log', logRoutes)
+    app.use('/api', authRoutes)
+    app.use('/api/primary', auth, primaryRoutes)
+    app.use('/api/secondary', auth, secondaryRoutes)
+    app.use('/api/monitor', auth, monitorRoutes)
+    app.use('/api/log', auth, logRoutes)
 
     app.listen(5000, () => {
         console.log("Server has started!")

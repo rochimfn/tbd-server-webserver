@@ -1,8 +1,15 @@
 import express from 'express'
-import primary from './controllers/primary.js'
-import secondary from './controllers/secondary.js'
+import auth from './controllers/auth.js';
 import log from './controllers/log.js'
 import monitor from './controllers/monitor.js'
+import primary from './controllers/primary.js'
+import secondary from './controllers/secondary.js'
+
+const authRoutes = ((routes) => {
+    routes.post('/login', auth.login)
+
+    return routes
+})(express.Router())
 
 const primaryRoutes = ((routes) => {
     routes.get('/', primary.index)
@@ -32,4 +39,4 @@ const monitorRoutes = ((routes) => {
     return routes
 })(express.Router())
 
-export { primaryRoutes, secondaryRoutes, logRoutes, monitorRoutes }
+export { authRoutes, primaryRoutes, secondaryRoutes, logRoutes, monitorRoutes }
