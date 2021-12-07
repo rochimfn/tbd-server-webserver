@@ -1,4 +1,21 @@
 <!DOCTYPE html>
-<div id="app"></div>
-<script type="module" src="./index.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/@patternfly/patternfly/patternfly.css" crossorigin="anonymous">
+
+<head>
+  <title>Dashboard RC Custom Log Shipping</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.3/lumen/bootstrap.min.css"
+    integrity="sha512-iNpepALP/QVjr2YQZjyaBe4OTIhoWvAjaYckFcgq87c9s4h5Y3ZzB7AQJiOjcd4uNLj9MvOk5E8Dsh5SRn0zsg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+  <div id="app">
+    <router-view></router-view>
+  </div>
+  <script type="module" src="./index.js"></script>
+</body>

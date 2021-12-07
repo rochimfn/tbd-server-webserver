@@ -18,7 +18,11 @@ const create = async (req, res) => {
             password: req.body.password
         })
         await secondary.save()
-        res.send(secondary)
+        res
+            .send({
+                status: 'success',
+                data: secondary
+            })
     } catch (e) {
         res.status(400)
             .send({

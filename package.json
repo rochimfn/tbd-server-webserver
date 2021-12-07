@@ -9,14 +9,19 @@
     "dev": "concurrently \"parcel watch --dist-dir public/dist\" \"nodemon index.js\"",
     "start": "concurrently \"parcel build --dist-dir public/dist\" \"node index.js\""
   },
+  "alias": {
+    "vue": "vue/dist/vue.esm-bundler.js"
+  },
   "dependencies": {
+    "axios": "^0.24.0",
     "bcrypt": "^5.0.1",
     "concurrently": "^6.4.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.13",
-    "vue": "^3.2.22"
+    "vue": "^3.2.23",
+    "vue-router": "^4.0.12"
   },
   "devDependencies": {
     "@parcel/transformer-vue": "^2.0.1",

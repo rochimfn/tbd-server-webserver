@@ -22,6 +22,7 @@ const main = async () => {
     app.get('/', (req, res) => {
         res.sendFile('public/dist/index.html');
     })
+
     app.use('/api', authRoutes)
     app.use('/api/primary', auth, primaryRoutes)
     app.use('/api/secondary', auth, secondaryRoutes)
@@ -29,7 +30,7 @@ const main = async () => {
     app.use('/api/log', auth, logRoutes)
 
     app.listen(5000, () => {
-        console.log("Server has started!")
+        console.log("server started in port 5000")
     })
 
 }
