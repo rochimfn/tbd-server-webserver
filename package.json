@@ -7,7 +7,7 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "dev": "concurrently \"parcel watch --dist-dir public/dist\" \"nodemon index.js\"",
-    "start": "concurrently \"parcel build --dist-dir public/dist\" \"node index.js\"",
+    "start": "concurrently \"parcel watch --dist-dir public/dist\" \"node index.js\"",
     "setup": "node seed/user.js"
   },
   "alias": {
