@@ -3,7 +3,7 @@ import Primary from '../models/Primary.js'
 const index = async (req, res) => {
     let data = await Primary.findOne()
 
-    if (data.length === 0) {
+    if (!data) {
         data = await new Primary({
             username: null,
             password: null,
