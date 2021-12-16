@@ -4,12 +4,14 @@ import Logout from './Logout.vue'
 import Secondary from './Secondary.vue'
 import PrimaryMonitor from './PrimaryMonitor.vue'
 import Primary from './Primary.vue'
+import Profile from './Profile.vue'
 
 const routes = [
     { path: '/', name: 'Secondary Monitor', component: Home },
     { path: '/secondary', name: 'Secondary Nodes', component: Secondary },
     { path: '/primary-monitor', name: 'Primary Monitor', component: PrimaryMonitor },
     { path: '/primary', name: 'Primary Node', component: Primary },
+    { path: '/profile', name: 'Profile', component: Profile },
     { path: '/logout', name: 'Logout', component: Logout },
     { path: '/login', name: 'Login', component: Login },
 ]

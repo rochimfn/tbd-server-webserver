@@ -4,9 +4,17 @@ import log from './controllers/log.js'
 import monitor from './controllers/monitor.js'
 import primary from './controllers/primary.js'
 import secondary from './controllers/secondary.js'
+import user from './controllers/user.js'
 
 const authRoutes = ((routes) => {
     routes.post('/login', auth.login)
+
+    return routes
+})(express.Router())
+
+const userRoutes = ((routes) => {
+    routes.get('/', user.show)
+    routes.patch('/:id', user.update)
 
     return routes
 })(express.Router())
@@ -39,4 +47,11 @@ const monitorRoutes = ((routes) => {
     return routes
 })(express.Router())
 
-export { authRoutes, primaryRoutes, secondaryRoutes, logRoutes, monitorRoutes }
+export {
+    authRoutes,
+    userRoutes,
+    primaryRoutes,
+    secondaryRoutes,
+    logRoutes,
+    monitorRoutes
+}

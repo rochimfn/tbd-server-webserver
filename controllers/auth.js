@@ -4,18 +4,18 @@ import jwt from 'jsonwebtoken'
 
 const login = async (req, res) => {
     try {
-        const {email, password} = req.body;
+        const { email, password } = req.body;
 
         if (!(email && password)) {
             res.status(400).json({
                 error: 'email and password is required',
             });
         }
-        const user = await User.findOne({email: email}).lean();
+        const user = await User.findOne({ email: email }).lean();
 
         if (user && (await bcrypt.compare(password, user.password))) {
             const token = jwt.sign(
-                {user_id: user.id, email},
+                { user_id: user.id, email },
                 process.env.TOKEN || 'default_token',
                 {
                     expiresIn: '2h',
@@ -23,7 +23,6 @@ const login = async (req, res) => {
             );
             user.token = token;
             delete user.password;
-            console.dir(user)
 
             res.status(200).json(
                 {
